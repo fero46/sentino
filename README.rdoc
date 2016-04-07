@@ -6,10 +6,8 @@ Sentino is used by HanseHype to automap categories from differente XML Source
 
 == How to use
 
-<pre>
   sentino = Sentino::Word.new("This is an example sentence")
   sentino.match("this is an other sentence") # => 0.8
-</pre>  
 
 == TODO
 
