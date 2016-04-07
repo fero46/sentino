@@ -17,8 +17,8 @@ Jeweler::Tasks.new do |gem|
   gem.name = "sentino"
   gem.homepage = "http://github.com/fero46/sentino"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = "Compare Strings by word"
+  gem.description = "Compare and give as result a matching result between 0 and 1"
   gem.email = "fero.ziba@gmail.com"
   gem.authors = ["Ferhat Ziba"]
   # dependencies defined in Gemfile
