@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.require_paths = ["lib"]
   s.authors = ["Ferhat Ziba"]
-  s.date = "2016-04-08"
+  s.date = "2016-06-10"
   s.description = "Compare and give as result a matching result between 0 and 1"
   s.email = "fero.ziba@gmail.com"
   s.extra_rdoc_files = [
@@ -27,13 +27,15 @@ Gem::Specification.new do |s|
     "Rakefile",
     "VERSION",
     "lib/sentino.rb",
+    "lib/sentino/pattern.rb",
     "lib/sentino/word.rb",
+    "sentino.gemspec",
     "test/helper.rb",
     "test/test_sentino.rb"
   ]
   s.homepage = "http://github.com/fero46/sentino"
   s.licenses = ["MIT"]
-  s.rubygems_version = "2.4.5.1"
+  s.rubygems_version = "2.4.8"
   s.summary = "Compare Strings by word"
 
   if s.respond_to? :specification_version then
