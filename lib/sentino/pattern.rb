@@ -14,7 +14,10 @@ private
       words = string.split(" ").map{|s| s.downcase}
       matchings = []
       for word in words
-        matchings += create_matchings(word) if word.length > 3
+        if word.length > 3
+          wordgroups = create_matchings(word)
+          matchings << wordgroups
+        end
       end
       matchings
     end
@@ -36,9 +39,21 @@ private
     end
 
     def check(string)
+      checked_words = []
       counts = []
-      for mathcer in @reference
-        counts << count_matchings(string, mathcer)
+      for words in @reference
+        #counts << count_matchings(string, mathcer)
+        res = 0
+        words = words.sort_by(&:length).reverse
+        for word in words
+          break if checked_words.include? word
+          res = count_matchings(string, word)
+          if res > 0
+            checked_words << word
+            break
+          end
+        end
+        counts << res
       end
       total_length = counts.map{|x| x == 0 ? 1 : x}.reduce(:+)
       matching_length = counts.reduce(:+)

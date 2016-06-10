@@ -32,5 +32,13 @@ class TestSentino < Test::Unit::TestCase
     assert_true sentino.match(obst) < sentino.match(suger)
   end
 
+  should "give a higher value for roggen then for mohn" do
+    reference = "Brot, Cerealien & Backwaren > Mehl, Getreide & Backzutaten > Getreide > Roggen"
+    mohn = "Lebens­mittel Backen Backzutaten Mohn"
+    roggen = "Lebens­mittel Mehl Stärke & Co. Mehl & Getreide Roggenmehl"
+    sentino = Sentino::Pattern.new(reference)
+    assert_true sentino.match(mohn) < sentino.match(roggen)
+  end
+
 
 end
