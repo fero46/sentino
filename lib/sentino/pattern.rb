@@ -40,14 +40,13 @@ private
       for mathcer in @reference
         counts << count_matchings(string, mathcer)
       end
-      puts counts
       total_length = counts.map{|x| x == 0 ? 1 : x}.reduce(:+)
       matching_length = counts.reduce(:+)
       matching_length.to_f/total_length.to_f
     end
 
     def count_matchings(string, substring)
-      string.scan(/(?=#{substring})/).count
+      string.scan(/(?=#{Regexp.quote(substring)})/).count
     end
 
   end
