@@ -33,11 +33,27 @@ class TestSentino < Test::Unit::TestCase
   end
 
   should "give a higher value for roggen then for mohn" do
-    reference = "Brot, Cerealien & Backwaren > Mehl, Getreide & Backzutaten > Getreide > Roggen"
-    mohn = "Lebens­mittel Backen Backzutaten Mohn"
+    reference = "Brot, Cerealien & Backwaren > Mehl, Getreide & Backzutaten > Getreide > Pseudogetreide > Quinoa"
+    mohn = "Baby Babynahrung Beikost Obst & Getreide"
     roggen = "Lebens­mittel Mehl Stärke & Co. Mehl & Getreide Roggenmehl"
     sentino = Sentino::Pattern.new(reference)
     assert_true sentino.match(mohn) < sentino.match(roggen)
+  end
+
+  should "give 1 for carrot and carrrot" do
+    reference = "carrot"
+    test_string = "carrrot"
+    sentino = Sentino::Distance.new(reference)
+    assert_equal 1, sentino.match(test_string)
+
+  end
+
+  should "give a smaller distance for roggen then for mohn" do
+    reference = "Brot, Cerealien & Backwaren > Mehl, Getreide & Backzutaten > Getreide > Pseudogetreide > Quinoa"
+    baby = "Baby Babynahrung Beikost Obst & Getreide"
+    roggen = "Lebens­mittel Mehl Stärke & Co. Mehl & Getreide Roggenmehl"
+    sentino = Sentino::Distance.new(reference)
+    assert_true sentino.match(baby) > sentino.match(roggen)
   end
 
 
